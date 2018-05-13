@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block title %} Not found {% endblock %}
+{% block head %}
+<style>
+div.pagenotfound > p {
+  padding-left: 30px;
+  padding-right: 30px;
+  color: black;
+  background-color: white;
+  }
+</style>
+{% endblock %}
+{% block content %}
+  <div class="pagenotfound">
+    <p> Sorry! sản phẩm bạn đang tìm kiếm hiện không tồn tại. Vui lòng quay lại <a href="/trang-chu" style="color: blue;"> Trang chủ</a> </p>
+  </div>
+  <section class="hero">
+      <div class="hero-body">
+          <div class="container has-text-centered">
+            <div class="columns">
+                <div class="column is-10-desktop is-offset-1-desktop">
+                    <figure class="image">
+                      <img src="https://imgur.com/HIHxqJt.gif" alt="">
+                    </figure>
+                </div>
+            </div>
+          </div>
+      </div>
+  </section>
+{% endblock %}

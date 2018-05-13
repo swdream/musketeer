@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="/static/js/editor.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#txtEditor").Editor();
+		});
+	</script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="/static/css/editor.css" type="text/css" rel="stylesheet"/>
+	<title>LineControl | v1.1.0</title>
+{% endblock %}>
+
+{% block body %}
+  <h1>Add Post</h1>
+  <form method="POST" action="">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" name="title" class="form-control" value={{request.form.title}}>
+    </div>
+	<div class="form-group">
+	  <label>Content</label>
+      <input type="text" name="body" class="form-control" value={{request.form.body}}>
+	</div>
+    <p><input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+{% endblock %}

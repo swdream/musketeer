@@ -1,0 +1,5 @@
+*.swp
+*.pyc
+app/migrations/
+app/__pycache__/
+app/media/

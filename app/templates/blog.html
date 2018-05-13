@@ -1,0 +1,107 @@
+{% extends 'layout.html' %}
+{% block body %}
+		<!-- Hero-area -->
+		<div class="hero-area section">
+
+			<!-- Backgound Image -->
+			<div class="bg-image bg-parallax overlay" style="background-image:url(static/img/page-background.jpg)"></div>
+			<!-- /Backgound Image -->
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 text-center">
+						<h1 class="white-text">Be So Good</h1>
+						<h1 class="white-text">They Cannot Ignore You</h1>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /Hero-area -->
+
+		<!-- Blog -->
+		<div id="blog" class="section">
+
+			<!-- container -->
+			<div class="container">
+
+				<!-- row -->
+				<div class="row">
+
+					<!-- main blog -->
+					<div id="main" class="col-md-9">
+
+						<!-- row -->
+						<div class="row">
+                            {% for post in posts %}
+							<!-- single blog -->
+							<div class="col-md-4">
+								<div class="single-blog">
+									<div class="blog-img">
+                                        <a href="post/{{ post.id }}">
+                                            <img src="{{ post.images.url }}" alt="">
+										</a>
+									</div>
+                                    <h4><a href="post/{{ post.id }}">{{ post.title }}</a></h4>
+									<div class="blog-meta">
+                                            <span class="blog-meta-author">By: <a href="/">Swdream</a></span>
+										<div class="pull-right">
+                                            <span><p>{{ post.pub_date }}</p></span>
+											<span class="blog-meta-comments"><a href="#"><i class="fa fa-comments"></i> 0</a></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /single blog -->
+                            {% endfor %}
+
+						</div>
+						<!-- /row -->
+
+					</div>
+					<!-- /main blog -->
+
+					<!-- aside blog -->
+					<div id="aside" class="col-md-3">
+
+
+						<!-- category widget -->
+						<div class="widget category-widget">
+							<h3>Categories</h3>
+							<a class="category" href="#">devops<span>5</span></a>
+							<a class="category" href="#">sysadmin<span>5</span></a>
+							<a class="category" href="#">developer<span>5</span></a>
+						</div>
+						<!-- /category widget -->
+
+						<!-- posts widget -->
+						<div class="widget posts-widget">
+							<h3>Những Bài Viết Mới Nhất</h3>
+                            {% for post in latest_posts %}
+							<!-- single posts -->
+							<div class="single-post">
+								<a class="single-post-img" href="#">
+                                    <img src="{{ post.images.url }}" alt="">
+								</a>
+                                <a href="blog-post.html">{{ post.title }}.</a>
+                                <p><small>By : Swdream .{{ post.pub_date }}</small></p>
+							</div>
+							<!-- /single posts -->
+                            {% endfor %}
+						</div>
+						<!-- /posts widget -->
+
+
+					</div>
+					<!-- /aside blog -->
+
+				</div>
+				<!-- row -->
+
+			</div>
+			<!-- container -->
+
+		</div>
+		<!-- /Blog -->
+
+{% endblock %}
