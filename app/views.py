@@ -9,8 +9,9 @@ def home(request):
 
 def blog(request):
     posts = Post.objects.all()
-    latest_posts = [post for post in posts][-3:]
-    context = {'posts': posts, 'latest_posts': latest_posts}
+    published_posts = [post for post in posts if post.status == 'Finished']
+    latest_posts = published_posts[-3:]
+    context = {'posts': published_posts, 'latest_posts': latest_posts}
     return render(request, 'blog.html', context)
 
 
