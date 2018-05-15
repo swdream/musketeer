@@ -14,12 +14,13 @@ class Post(models.Model):
         )
     CATEGORIES = (
         ('Devops', 'devops'),
-        ('sysadmin', 'sysadmin'),
-        ('developer', 'developer'),
+        ('Sysadmin', 'sysadmin'),
+        ('Developer', 'developer'),
+	('Myself', 'myself')
         )
     STATUS = (
-        ('Draft', 'draft'),
-        ('Finished', 'finished'),
+        ('Draft', 'Draft'),
+        ('Finished', 'Finished'),
         )
     post_type = models.CharField(max_length=20, null=True, choices=TYPES)
     category = models.CharField(max_length=20, null=True, choices=CATEGORIES)
