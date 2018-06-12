@@ -36,8 +36,7 @@
 
 					<!-- blog post -->
 					<div class="blog-post">
-                        {% load markup_tags %}
-                        {% filter apply_markup:"markdown" %} {{ post.post_content }} {% endfilter %}
+            {{ post.post_content|safe }}
 					</div>
 					<!-- /blog post -->
 
