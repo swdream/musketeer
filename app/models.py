@@ -5,7 +5,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
-from djrichtextfield.models import RichTextField
+from ckeditor.fields import RichTextField
 
 
 class Post(models.Model):

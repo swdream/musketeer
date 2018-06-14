@@ -4,7 +4,11 @@ from .forms import CommentForm
 
 
 def home(request):
-    return render(request, 'home.html')
+    posts = Post.objects.all()
+    published_posts = [post for post in posts if post.status == 'Finished']
+    latest_posts = published_posts[-8:]
+    context = {'latest_posts': latest_posts}
+    return render(request, 'home.html', context)
 
 
 def blog(request):
