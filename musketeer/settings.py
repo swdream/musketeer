@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     #'djrichtextfield',
     'ckeditor',
     'ckeditor_uploader',
+    'easy_thumbnails',
+    'image_cropping',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +141,13 @@ CKEDITOR_UPLOAD_PATH = "/media/"
 
 IMAGE_QUALITY = 40
 #THUMBNAIL_SIZE = (300, 300)
+
+from easy_thumbnails.conf import Settings as thumbnail_settings
+THUMBNAIL_PROCESSORS = (
+    'image_cropping.thumbnail_processors.crop_corners',
+) + thumbnail_settings.THUMBNAIL_PROCESSORS
+
+IMAGE_CROPPING_THUMB_SIZE = (300, 300)
+IMAGE_CROPPING_JQUERY_URL = 'js/jquery.min.js'
+THUMBNAIL_DEBUG = True
+HEADLESS = True
