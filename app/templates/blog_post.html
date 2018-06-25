@@ -61,7 +61,7 @@
 								<input class="input name-input" type="text" name="author" placeholder="Name">
 								<input class="input email-input" type="email" name="email" placeholder="Email">
 								<textarea class="input" name="content" placeholder="Enter your Message"></textarea>
-                                <button class="main-button icon-button" href="post/{{ post.id }}">Submit</button>
+                                <button class="main-button icon-button" href="post/{{ post.post_url }}">Submit</button>
 							</form>
 						</div>
 						<!-- /blog reply form -->
@@ -80,7 +80,7 @@
 						{% for post in related_posts %}
 						<!-- single posts -->
 						<div class="single-post">
-							<a class="single-post-img" href="post/{{ post.id }}">
+							<a class="single-post-img" href="post/{{ post.post_url }}">
 								<img src="{{ post.images.url }}" alt="">
 							</a>
 							<a href="blog-post.html">{{ post.title }}</a>

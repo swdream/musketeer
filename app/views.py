@@ -19,9 +19,9 @@ def blog(request):
     return render(request, 'blog.html', context)
 
 
-def post(request, post_id):
+def post(request, post_url):
     try:
-        post = get_object_or_404(Post, pk=post_id)
+        post = get_object_or_404(Post, post_url=post_url)
         related_posts = Post.objects.filter(post_type=post.post_type)[:5]
         context = {'post': post, 'related_posts': related_posts}
         if request.method == "POST":
