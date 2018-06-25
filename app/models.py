@@ -32,7 +32,7 @@ class Post(models.Model):
     images = models.ImageField(upload_to='images')
     post_content = RichTextField()
     status = models.CharField(max_length=20, null=True, choices=STATUS)
-    post_url = models.CharField(max_length=20, null=True, blank=True)
+    post_url = models.CharField(max_length=220, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         self.post_url = ('-').join(self.title.lower().strip().split())
