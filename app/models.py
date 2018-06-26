@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from unidecode import unidecode
 
 import datetime
 
@@ -35,7 +36,7 @@ class Post(models.Model):
     post_url = models.CharField(max_length=220, null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        self.post_url = ('-').join(self.title.lower().strip().split())
+        self.post_url = ('-').join(unidecode(self.title).lower().strip().split())
         super(Post, self).save( *args, **kwargs)
 
     def was_published_recently(self):
