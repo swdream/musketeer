@@ -16,6 +16,14 @@ def blog(request):
     published_posts = [post for post in posts if post.status == 'Finished']
     latest_posts = published_posts[-3:]
     context = {'posts': published_posts, 'latest_posts': latest_posts}
+    devops_post_number = len(Post.objects.filter(category='devops'))
+
+    sysadmin_post_number = len(Post.objects.filter(category='sysadmin'))
+    developer_post_number = len(Post.objects.filter(category='developer'))
+    context = {'posts': published_posts, 'latest_posts': latest_posts,
+            'devops_post_number': devops_post_number,
+            'sysadmin_post_number': sysadmin_post_number,
+            'developer_post_number': developer_post_number}
     return render(request, 'blog.html', context)
 
 
